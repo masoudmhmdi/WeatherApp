@@ -1,3 +1,5 @@
+import { Router } from '../../Router';
+
 export const HandleSubmit = function (e) {
   e.preventDefault();
   const formData = e.target.querySelectorAll('input');
@@ -54,6 +56,9 @@ export const HandleSubmit = function (e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
+    }).then(() => {
+      history.pushState(null, null, '/');
+      Router();
     });
   }
   console.log(data);

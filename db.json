@@ -1,19 +1,16 @@
 {
   "users": [
     {
-      "id": 1
-    },
-    {
-      "id": 2
-    },
-    {
-      "id": 3
-    },
-    {
-      "name": "asdf",
+      "name": "masoud mohammadi",
       "email": "a@b.com",
       "password": "1234",
-      "id": 1679493344850
+      "id": 1679493615874
+    },
+    {
+      "name": "asdfasd",
+      "email": "masoudmohamadi86@ut.ac.ir",
+      "password": "12345",
+      "id": 1679493911435
     }
   ]
 }
