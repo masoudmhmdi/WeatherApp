@@ -1,6 +1,7 @@
 export const HandleSubmit = function (e) {
   e.preventDefault();
   const formData = e.target.querySelectorAll('input');
+  console.log(formData);
   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   let data = {};
   let errors = {};
@@ -46,6 +47,15 @@ export const HandleSubmit = function (e) {
   }
   data.id = Date.now();
   let isValid = [...formData].every((input) => input.dataset.valid === 'true');
+  delete data.confirmPassword;
+  console.log(data);
+  if (isValid) {
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+  }
   console.log(data);
 };
 
