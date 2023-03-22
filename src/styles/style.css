@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slider::before {
+  position: absolute;
+  content: '';
+  width: 40px;
+  height: 40px;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  background-color: #bbd8ec;
+  border-radius: 100%;
+}
+
+#checkbox:checked + .slider:before {
+  -webkit-transform: translateX(-40px);
+  -ms-transform: translateX(-40px);
+  transform: translateX(-40px);
+}
+
+#checkbox:checked + .moon {
+  display: none;
+}
