@@ -1,0 +1,2 @@
+api for current weather:http://api.weatherapi.com/v1/current.json?key=d34fc733e0414ba887a102840232303&q=tehran&aqi=no
+//
