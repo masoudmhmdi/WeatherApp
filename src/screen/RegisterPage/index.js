@@ -2,7 +2,7 @@ import { TextField } from '../../components/TextField';
 import { HandleSubmit } from '../../logic/HandleSubmit';
 
 export const RegisterPage = () => {
-  let html = `     <nav class="w-full flex justify-between">
+  let html = `     <nav class="min-h-[60px] w-full flex justify-between">
   <h1 class="text-2xl font-semibold">Weather App</h1>
   <label
     class="switch relative w-[80px] h-[40px] rounded-full bg-gray-100 dark:bg-secondary border dark:border-colorText flex justify-between items-center"
@@ -41,7 +41,7 @@ export const RegisterPage = () => {
     ></span>
   </label>
 </nav>
-<main class="w-full h-[calc(100%-50px)] flex justify-center items-center">
+<main class="w-full h-[calc(100%-50px)] flex justify-center items-center ">
   <div class="w-[450px] min-w-[280px] p-8">
     <h1
       class="text-center w-full text-3xl font-semibold text-black dark:text-white"

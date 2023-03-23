@@ -1,4 +1,6 @@
+import { TextField } from '../../components/TextField';
 import { Router } from '../../Router';
+import { HandleLogin } from '../../logic/HandleLogin';
 
 export const LoginPage = () => {
   function goToRegisterPage() {
@@ -57,17 +59,18 @@ export const LoginPage = () => {
       >
         Please enter your Login and password
       </p>
-      <form class="w-full pt-10 flex flex-col justify-center items-center">
-        <input
-          type="text"
-          class="w-full h-8 border border-colorText rounded-[3px] bg-transparent px-2 outline-none"
-          placeholder="Email"
-        />
-        <input
-          type="text"
-          class="w-full h-8 border border-colorText rounded-[3px] bg-transparent px-2 outline-none mt-4"
-          placeholder="Password"
-        />
+      <form class="w-full pt-10 flex flex-col justify-center items-center" onsubmit="HandleLogin(event)">
+      ${TextField({
+        name: 'login-email',
+        placeholder: 'Please enter your email',
+        labelText: 'Email:',
+      })}
+      ${TextField({
+        name: 'login-password',
+        placeholder: 'Please enter your password',
+        labelText: 'Password',
+      })}
+     
         <button
           type="submit"
           class="mt-16 border px-8 py-1 rounded-[3px] dark:hover:bg-colorText dark:hover:text-gray-900 border-colorText hover:bg-gray-700 transition-all hover:scale-105 hover:text-colorText"
