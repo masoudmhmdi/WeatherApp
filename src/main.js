@@ -1,5 +1,6 @@
-import { HandleMood } from './logic/HandleMood';
+import { GetData } from './logic/GetData';
 import { Router } from './Router';
+import { HomePage } from './screen/HomePage';
 import './styles/style.css';
 Router();
 window.addEventListener('popstate', () => {
@@ -8,4 +9,3 @@ window.addEventListener('popstate', () => {
 window.addEventListener('push', () => {
   Router();
 });
-HandleMood();

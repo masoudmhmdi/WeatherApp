@@ -1,4 +1,6 @@
 import Cookies from 'js-cookie';
+import { Result } from 'postcss';
+import { HandleMood } from '../logic/HandleMood';
 import { HomePage } from '../screen/HomePage';
 import { LoginPage } from '../screen/LoginPage';
 import { RegisterPage } from '../screen/RegisterPage';
@@ -17,13 +19,16 @@ export const Router = () => {
   switch (location.pathname) {
     case '/':
       body.innerHTML = LoginPage();
+      HandleMood();
       break;
     case '/home':
-      body.innerHTML = isPrivate(HomePage);
+      HomePage();
+
       break;
 
     case '/register':
       body.innerHTML = RegisterPage();
+      HandleMood();
       break;
     default: {
       body.innerHTML = 'page not found | 404';
