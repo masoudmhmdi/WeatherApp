@@ -7,17 +7,17 @@
   content: '';
   width: 40px;
   height: 40px;
-  right: 0;
-  bottom: 0;
+  right: -1px;
+  bottom: -1px;
   transition: 0.4s;
   background-color: #bbd8ec;
   border-radius: 100%;
 }
 
 #checkbox:checked + .slider:before {
-  -webkit-transform: translateX(-40px);
-  -ms-transform: translateX(-40px);
-  transform: translateX(-40px);
+  -webkit-transform: translateX(-41px);
+  -ms-transform: translateX(-41px);
+  transform: translateX(-41px);
 }
 
 #checkbox:checked + .moon {

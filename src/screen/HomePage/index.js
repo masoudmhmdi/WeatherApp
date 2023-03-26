@@ -23,7 +23,7 @@ export const HomePage = async function (location = '35.6892523,51.3896004') {
     <p id="locationName" class="text-gray-500 text-lg dark:text-colorText"></p>
   </div>
   <div
-    class="w-1/2 bg-gray-200 dark:bg-secondary rounded-full h-[40px] flex items-center px-1"
+    class="w-1/2 bg-gray-200 shadow shadow-gray-400 dark:shadow-none dark:bg-secondary rounded-full h-[40px] flex items-center px-1"
   >
     <svg
       width="25"
@@ -49,7 +49,7 @@ export const HomePage = async function (location = '35.6892523,51.3896004') {
     />
   </div>
   <label
-    class="switch relative w-[80px] h-[40px] rounded-full bg-gray-200 dark:bg-secondary border dark:border-colorText flex justify-between items-center"
+    class="switch relative w-[80px] h-[40px] shadow shadow-gray-400 dark:shadow-none rounded-full bg-gray-200 dark:bg-secondary border dark:border-colorText flex justify-between items-center"
   >
     <svg
       class="z-20 absolute right-2 checked:left-0"
@@ -112,7 +112,7 @@ export const HomePage = async function (location = '35.6892523,51.3896004') {
       </div>
     </section>
     <section
-      class="w-full mt-2 rounded-[30px] bg-gray-200 dark:bg-secondary h-[120px] flex"
+      class="w-full mt-2 rounded-[30px] bg-gray-200 shadow shadow-gray-400 dark:shadow-none dark:bg-secondary h-[120px] flex"
     >
       <div class="w-1/3 h-full flex flex-col justify-center items-center">
         <img src="./src/assets/imgs/wind-pngrepo-com 1.png" />
@@ -138,7 +138,7 @@ export const HomePage = async function (location = '35.6892523,51.3896004') {
       <div class="mt-8">
         <div>
           <h2 class="text-xl">Today</h2>
-          <div class="w-full overflow-x-scroll flex justify-around gap-2 mt-1 scrollbar-hide">
+          <div class="w-full overflow-x-scroll flex justify-around gap-2 mt-1 scrollbar-hide py-2">
             ${RenderHourMobileCard(data.forecast.forecastday[0].hour)}
           </div>
         </div>
