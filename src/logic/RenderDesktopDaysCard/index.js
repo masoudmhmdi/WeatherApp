@@ -16,7 +16,7 @@ export const RenderDesktopDaysCard = (dataArr) => {
       let htmlDt = `<div
     class=" min-w-[180px] w-[180px] overflow-hidden shadow shadow-gray-400 dark:shadow-none bg-info  rounded-3xl flex flex-col justify-around items-center"
   >
-    <div class="w-full h-10 p-4 bg-[#ADCADE] p-1 flex justify-between items-center ">
+    <div class="w-full h-10 p-4 bg-[#ADCADE]  flex justify-between items-center ">
     <h4 class="text-black font-semibold">${getWeekday()}</h4>
     <h4 class="text-black font-semibold">11:42 PM</h4>
     </div>
@@ -37,7 +37,7 @@ export const RenderDesktopDaysCard = (dataArr) => {
     } else {
       let oneDay = `<div
         class=" min-w-[90px] flex items-stretch shadow shadow-gray-400 dark:shadow-none  rounded-3xl dark:bg-secondary bg-gray-200 md:flex flex-col justify-center
-         items-center"
+         "
       >
        <div class="w-[50px] text-center mx-auto border-b pb-1 border-gray-400"> <h4>${
          day.date.split('-')[2]

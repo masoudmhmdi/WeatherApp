@@ -8,7 +8,7 @@ export const RenderHourMobileCard = function (hourArr) {
     if (time >= timeNow) {
       if (time == timeNow) {
         let oneDay = `<div
-        class=" min-w-[90px]  shadow shadow-gray-400 dark:shadow-none  rounded-3xl dark:bg-secondary bg-info md:flex flex-col justify-around items-center"
+        class=" min-w-[90px]  shadow shadow-gray-400 dark:shadow-none dark:text-black  rounded-3xl  bg-info md:flex flex-col justify-around items-center"
         >
         <div class="w-[50px] mx-auto text-center border-b pb-1 border-gray-400"> <h4>${time}</h4>
         </div>

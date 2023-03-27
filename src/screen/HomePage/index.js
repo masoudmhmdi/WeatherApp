@@ -5,6 +5,8 @@ import { RenderHourMobileCard } from '../../logic/RenderHourCard';
 import { HandleSearch } from '../../logic/HandleSearch';
 import { RenderDesktopDaysCard } from '../../logic/RenderDesktopDaysCard';
 import { Chart } from 'chart.js/auto';
+import { RainChart } from '../../logic/RainChart';
+import { SnowChart } from '../../logic/SnowChart';
 
 export const HomePage = async function (location = '35.6892523,51.3896004') {
   const body = document.body;
@@ -163,53 +165,8 @@ export const HomePage = async function (location = '35.6892523,51.3896004') {
     </div>
   </main>`;
   body.innerHTML += main;
-
-  (async function () {
-    new Chart(document.getElementById('acquisitions'), {
-      type: 'line',
-      options: {
-        elements: {
-          line: {
-            borderColor: '#BBD8EC',
-          },
-        },
-      },
-      data: {
-        labels: data.forecast.forecastday.map((row) => row.date.split('-')[2]),
-        datasets: [
-          {
-            label: 'Chance of rain',
-            data: data.forecast.forecastday.map(
-              (row) => row.day.daily_chance_of_rain
-            ),
-          },
-        ],
-      },
-    });
-  })();
-  (async function () {
-    new Chart(document.getElementById('chanceOfSnow'), {
-      type: 'line',
-      options: {
-        elements: {
-          line: {
-            borderColor: '#BBD8EC',
-          },
-        },
-      },
-      data: {
-        labels: data.forecast.forecastday.map((row) => row.date.split('-')[2]),
-        datasets: [
-          {
-            label: 'Chance of rain',
-            data: data.forecast.forecastday.map(
-              (row) => row.day.daily_chance_of_snow
-            ),
-          },
-        ],
-      },
-    });
-  })();
+  RainChart(data);
+  SnowChart(data);
 
   HandleMood();
 };
