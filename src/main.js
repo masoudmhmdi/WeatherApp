@@ -1,6 +1,5 @@
-import { GetData } from './logic/GetData';
 import { Router } from './Router';
-import { HomePage } from './screen/HomePage';
+import { Chart } from 'chart.js/auto';
 import './styles/style.css';
 Router();
 window.addEventListener('popstate', () => {

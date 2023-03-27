@@ -3,6 +3,8 @@ import { HandleMood } from '../../logic/HandleMood';
 import { RenderDaysMobileCard } from '../../logic/RenderDaysCard';
 import { RenderHourMobileCard } from '../../logic/RenderHourCard';
 import { HandleSearch } from '../../logic/HandleSearch';
+import { RenderDesktopDaysCard } from '../../logic/RenderDesktopDaysCard';
+import { Chart } from 'chart.js/auto';
 
 export const HomePage = async function (location = '35.6892523,51.3896004') {
   const body = document.body;
@@ -93,66 +95,122 @@ export const HomePage = async function (location = '35.6892523,51.3896004') {
   locationName.innerHTML = `${data.location.name},${data.location.country}`;
 
   let main = `
-  <main class="w-full mt-2">
-    <section>
-      <div class="w-full flex items-start justify-center flex-col md:hidden">
-        <h1 class="dark:text-white text-xl">${data.location.name}</h1>
-        <p class="text-xs">${date}</p>
-      </div>
-      <div class="w-full flex">
-        <div class="w-1/2 flex flex-col justify-center items-center">
-          <h2 class="text-[70px] h-[82px] dark:text-white font-semibold">
-           ${data.current.temp_c}°
-          </h2>
-          <p>${data.current.condition.text}</p>
-        </div>
-        <div class="w-1/2 flex justify-center items-center">
-          <img class="w-[150px]" src="${data.current.condition.icon}" alt="" />
-        </div>
-      </div>
-    </section>
-    <section
-      class="w-full mt-2 rounded-[30px] bg-gray-200 shadow shadow-gray-400 dark:shadow-none dark:bg-secondary h-[120px] flex"
-    >
-      <div class="w-1/3 h-full flex flex-col justify-center items-center">
-        <img src="./src/assets/imgs/wind-pngrepo-com 1.png" />
-        <p class="text-gray-700 dark:text-white">${
-          data.current.wind_kph
-        } km/h</p>
-        <p class="text-xs dark:text-colorText text-gray-500">Wind</p>
-      </div>
-      <div class="w-1/3 h-full flex flex-col justify-center items-center">
-        <img src="./src/assets/imgs/water-pngrepo-com 2.png" />
-        <p class="text-gray-700 dark:text-white">${data.current.humidity}%</p>
-        <p class="text-xs dark:text-colorText text-gray-500">humidity</p>
-      </div>
-      <div class="w-1/3 h-full flex flex-col justify-center items-center">
-        <img
-          src="./src/assets/imgs/umbrella-with-rain-drops-pngrepo-com 1.png"
-        />
-        <p class="text-gray-700 dark:text-white">${data.current.precip_mm}mm</p>
-        <p class="text-xs dark:text-colorText text-gray-500">precip</p>
-      </div>
-    </section>
-    <section class="flex flex-col gap-4">
-      <div class="mt-8">
-        <div>
-          <h2 class="text-xl">Today</h2>
-          <div class="w-full overflow-x-scroll flex justify-around gap-2 mt-1 scrollbar-hide py-2">
-            ${RenderHourMobileCard(data.forecast.forecastday[0].hour)}
-          </div>
-        </div>
-      </div>
-      <div class="mt-8">
-        <div>
-          <h2 class="text-xl">Next7 days</h2>
-          <div class="w-full overflow-x-auto flex gap-2 justify-around mt-1 mb-4">
-            ${RenderDaysMobileCard(data.forecast.forecastday)}
-          </div>
-        </div>
-      </div>
-    </section>
+  <main class="w-full mt-2 flex">
+   <div class="w-full lg:w-3/4">
+   <section>
+   <div class="w-full flex items-start justify-center flex-col md:hidden">
+     <h1 class="dark:text-white text-xl">${data.location.name}</h1>
+     <p class="text-xs">${date}</p>
+   </div>
+   <div class="w-full flex">
+     <div class="w-1/2 flex flex-col justify-center items-center">
+       <h2 class="text-[70px] h-[82px] dark:text-white font-semibold">
+        ${data.current.temp_c}°
+       </h2>
+       <p>${data.current.condition.text}</p>
+     </div>
+     <div class="w-1/2 flex justify-center items-center">
+       <img class="w-[150px]" src="${data.current.condition.icon}" alt="" />
+     </div>
+   </div>
+ </section>
+ <section
+   class="w-full mt-2 rounded-[30px] bg-gray-200 shadow shadow-gray-400 dark:shadow-none dark:bg-secondary h-[120px] flex"
+ >
+   <div class="w-1/3 h-full flex flex-col justify-center items-center">
+     <img src="./src/assets/imgs/wind-pngrepo-com 1.png" />
+     <p class="text-gray-700 dark:text-white">${data.current.wind_kph} km/h</p>
+     <p class="text-xs dark:text-colorText text-gray-500">Wind</p>
+   </div>
+   <div class="w-1/3 h-full flex flex-col justify-center items-center">
+     <img src="./src/assets/imgs/water-pngrepo-com 2.png" />
+     <p class="text-gray-700 dark:text-white">${data.current.humidity}%</p>
+     <p class="text-xs dark:text-colorText text-gray-500">humidity</p>
+   </div>
+   <div class="w-1/3 h-full flex flex-col justify-center items-center">
+     <img
+       src="./src/assets/imgs/umbrella-with-rain-drops-pngrepo-com 1.png"
+     />
+     <p class="text-gray-700 dark:text-white">${data.current.precip_mm}mm</p>
+     <p class="text-xs dark:text-colorText text-gray-500">precip</p>
+   </div>
+ </section>
+ <section class="flex flex-col gap-4">
+   <div class="mt-8">
+     <div>
+       <h2 class="text-xl">Today</h2>
+       <div class="w-full overflow-x-scroll flex justify-around gap-2 mt-1 scrollbar-hide py-2  sm:p-1">
+         ${RenderHourMobileCard(data.forecast.forecastday[0].hour)}
+       </div>
+     </div>
+   </div>
+   <div class="mt-8">
+     <div>
+       <h2 class="text-xl">Next7 days</h2>
+       <div class="w-full py-2 overflow-x-auto flex gap-2 justify-around mt-1 mb-4">
+
+         ${RenderDesktopDaysCard(data.forecast.forecastday)}
+       </div>
+     </div>
+   </div>
+ </section>
+   </div>
+
+
+    <div class='w-0  lg:w-1/4 flex flex-col gap-8'>
+      <div class="w-full"><canvas id="acquisitions"></canvas></div>
+      <div class="w-full"><canvas id="chanceOfSnow"></canvas></div>
+    </div>
   </main>`;
   body.innerHTML += main;
+
+  (async function () {
+    new Chart(document.getElementById('acquisitions'), {
+      type: 'line',
+      options: {
+        elements: {
+          line: {
+            borderColor: '#BBD8EC',
+          },
+        },
+      },
+      data: {
+        labels: data.forecast.forecastday.map((row) => row.date.split('-')[2]),
+        datasets: [
+          {
+            label: 'Chance of rain',
+            data: data.forecast.forecastday.map(
+              (row) => row.day.daily_chance_of_rain
+            ),
+          },
+        ],
+      },
+    });
+  })();
+  (async function () {
+    new Chart(document.getElementById('chanceOfSnow'), {
+      type: 'line',
+      options: {
+        elements: {
+          line: {
+            borderColor: '#BBD8EC',
+          },
+        },
+      },
+      data: {
+        labels: data.forecast.forecastday.map((row) => row.date.split('-')[2]),
+        datasets: [
+          {
+            label: 'Chance of rain',
+            data: data.forecast.forecastday.map(
+              (row) => row.day.daily_chance_of_snow
+            ),
+          },
+        ],
+      },
+    });
+  })();
+
   HandleMood();
 };
+//
