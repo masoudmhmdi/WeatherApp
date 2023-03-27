@@ -3,7 +3,7 @@ export const RenderHourMobileCard = function (hourArr) {
   console.log(timeNow);
   let allCard = ``;
 
-  hourArr.forEach((hour, i) => {
+  hourArr.forEach((hour) => {
     let time = hour.time.split(' ')[1].replace(':00', '');
     if (time >= timeNow) {
       if (time == timeNow) {
